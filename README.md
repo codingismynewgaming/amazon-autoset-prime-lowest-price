@@ -1,4 +1,4 @@
-# Amazon Prime All Autoselect & Lowest Price Sorting
+# Amazon Autoset All Prime Delivery & Sort Price Low to High
 
 A browser extension that automatically applies Prime filters and sorts products by lowest price on Amazon search results.
 
@@ -20,7 +20,7 @@ A browser extension that automatically applies Prime filters and sorts products 
 ## Installation
 
 ### Firefox (Mozilla Add-ons)
-1. Visit the [Mozilla Add-ons page](https://addons.mozilla.org/firefox/addon/amazon-prime-all-autoselect/) (pending submission)
+1. Visit the [Mozilla Add-ons page](https://addons.mozilla.org/firefox/addon/amazon-autoset-prime/) (pending submission)
 2. Click "Add to Firefox"
 3. Confirm the installation
 

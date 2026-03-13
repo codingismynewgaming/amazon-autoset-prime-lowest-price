@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [2.0.0] - 2026-03-13
 
 ### Changed
-- **New Name**: Renamed to "Amazon Prime All Autoselect & Lowest Price Sorting"
+- **Extension Name**: Amazon Autoset All Prime Delivery & Sort Price Low to High
 - **Compact UI**: Smaller popup size (340px width) per Mozilla recommendations
 - **Smaller Fonts**: Reduced font sizes throughout (11-12px base)
 - **Tab Navigation**: Separated Settings, Legal, and Support into tabs
