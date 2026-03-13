@@ -15,6 +15,9 @@ All notable changes to this project will be documented in this file.
 - **Tab-based UI**: Settings, Legal, and Support tabs
 - **Compact Design**: Optimized popup size (340px width) per Mozilla recommendations
 
+#### Bug Fixes
+- **Price Sorting Fixed**: Changed from dropdown event dispatching to URL navigation for reliable sorting
+
 #### Supported Marketplaces
 - North America: amazon.com, amazon.ca, amazon.com.mx
 - Europe: amazon.de, amazon.co.uk, amazon.fr, amazon.it, amazon.es, amazon.nl, amazon.se, amazon.pl
