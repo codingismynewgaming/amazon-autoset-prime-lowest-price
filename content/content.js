@@ -144,24 +144,32 @@
     if (settings.autoPrime) {
       const rh = params.get('rh') || '';
       const hasPrimeInUrl = rh.includes('p_85') || rh.includes('p_76') || rh.includes('p_n_free_shipping_eligible');
-      
-      const primeChecked = document.querySelector('li[data-a-name="p_76"] input:checked') || 
+
+      const primeChecked = document.querySelector('li[data-a-name="p_76"] input:checked') ||
                            document.querySelector('li[data-a-name="p_85"] input:checked') ||
                            document.querySelector('li[data-a-name="p_n_free_shipping_eligible"] input:checked') ||
                            document.querySelector('.s-navigation-item.s-navigation-selected[data-a-name="p_85"]') ||
                            document.querySelector('.s-navigation-item.s-navigation-selected[data-a-name="p_76"]') ||
                            document.querySelector('.s-navigation-item.s-navigation-selected[data-a-name="p_n_free_shipping_eligible"]');
-      
+
       primeApplied = hasPrimeInUrl || !!primeChecked;
     }
 
     // Check Sort
     let sortApplied = true;
     if (settings.autoSort) {
+      // Check session storage flag (set after URL navigation)
+      const sortJustApplied = sessionStorage.getItem('primeSorterSortApplied') === 'true';
+      
+      // Check URL parameter
       const hasSortInUrl = params.get('s') === 'price-asc-rank';
+      
+      // Check dropdown (fallback for native select elements)
       const sortDropdown = document.querySelector('#s-result-sort-select');
       const isSortCorrect = sortDropdown && sortDropdown.value === 'price-asc-rank';
-      sortApplied = hasSortInUrl || isSortCorrect;
+      
+      // Sort is applied if: just applied via navigation, OR in URL, OR dropdown is correct
+      sortApplied = sortJustApplied || hasSortInUrl || isSortCorrect;
     }
 
     return primeApplied && sortApplied;
@@ -207,13 +215,24 @@
   }
 
   async function applySortDOM() {
-    log('Applying sort via dropdown change...');
-    const sortDropdown = document.querySelector('#s-result-sort-select');
-    if (sortDropdown) {
-      sortDropdown.value = 'price-asc-rank';
-      sortDropdown.dispatchEvent(new Event('change', { bubbles: true }));
+    log('Applying sort via URL navigation...');
+    
+    // Get current URL and add/replace sort parameter
+    const url = new URL(window.location.href);
+    const currentSort = url.searchParams.get('s');
+    
+    // Only navigate if sort is not already set to price-asc-rank
+    if (currentSort !== 'price-asc-rank') {
+      url.searchParams.set('s', 'price-asc-rank');
+      
+      // Store in session storage to prevent infinite loop
+      sessionStorage.setItem('primeSorterSortApplied', 'true');
+      
+      // Navigate to the sorted URL
+      window.location.href = url.toString();
       return true;
     }
+    
     return false;
   }
 
@@ -224,11 +243,17 @@
   async function execute() {
     const now = Date.now();
     if (isExecuting || (now - lastExecutionTime < 3000)) return;
-    
+
     if (!isSearchPage()) return;
-    
+
     const settings = await getSettings();
     if (!settings.enabled) return;
+
+    // Clear session storage flag if sort is already in URL (page reloaded after sort)
+    const url = new URL(window.location.href);
+    if (url.searchParams.get('s') === 'price-asc-rank') {
+      sessionStorage.removeItem('primeSorterSortApplied');
+    }
 
     if (areFiltersApplied(settings)) return;
 
@@ -239,28 +264,28 @@
 
     let primeApplied = false;
     let sortApplied = false;
-    
+
     if (settings.autoPrime) {
       const isPrimeApplied = (new URL(window.location.href)).searchParams.get('rh')?.match(/p_76|p_85|p_n_free_shipping_eligible/) ||
-                             document.querySelector('li[data-a-name="p_76"] input:checked') || 
+                             document.querySelector('li[data-a-name="p_76"] input:checked') ||
                              document.querySelector('li[data-a-name="p_85"] input:checked') ||
                              document.querySelector('li[data-a-name="p_n_free_shipping_eligible"] input:checked') ||
                              document.querySelector('.s-navigation-item.s-navigation-selected[data-a-name="p_85"]');
-      
+
       if (!isPrimeApplied) {
         primeApplied = await applyPrimeFilterDOM();
         if (primeApplied) {
           showNotification('Prime filter applied');
           setTimeout(() => { isExecuting = false; }, 2000);
-          return; 
+          return;
         }
       }
     }
-    
+
     if (settings.autoSort) {
       const isSortApplied = (new URL(window.location.href)).searchParams.get('s') === 'price-asc-rank' ||
                             document.querySelector('#s-result-sort-select')?.value === 'price-asc-rank';
-      
+
       if (!isSortApplied) {
         sortApplied = await applySortDOM();
         if (sortApplied) {
