@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Amazon Autoset All Prime Delivery & Sort Price Low to High",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Automatically apply Prime filters and sort by lowest price on Amazon. Works on all marketplaces. Privacy-first with no data collection.",
   "permissions": [
     "storage"

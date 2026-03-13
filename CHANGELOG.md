@@ -2,47 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.0] - 2026-03-13
+## [1.0.0] - 2026-03-13
 
-### Changed
-- **Extension Name**: Amazon Autoset All Prime Delivery & Sort Price Low to High
-- **Compact UI**: Smaller popup size (340px width) per Mozilla recommendations
-- **Smaller Fonts**: Reduced font sizes throughout (11-12px base)
-- **Tab Navigation**: Separated Settings, Legal, and Support into tabs
-- **Dark Mode Support**: Automatic theme adaptation based on browser preference
+### Initial Release
 
-### Added
-- **Support Tab**: Buy Me a Coffee and PayPal donation buttons
-- **GitHub Repository**: Public source code and issue tracking
-- **Compact Design**: Optimized for Mozilla Add-ons guidelines
+#### Features
+- **Auto Prime Filter**: Automatically applies "All Prime" filter to show only Prime-eligible items
+- **Auto Price Sorting**: Instantly sorts results from lowest to highest price
+- **Global Support**: Works on all Amazon marketplaces worldwide
+- **Privacy First**: No data collection, everything runs locally in your browser
+- **Dark Mode**: Automatically adapts to your browser's dark/light theme
+- **Tab-based UI**: Settings, Legal, and Support tabs
+- **Compact Design**: Optimized popup size (340px width) per Mozilla recommendations
 
-### Removed
-- Accessibility features (skip links, live announcers, ARIA attributes)
-- Verbose legal text in popup
-- Large header and oversized UI elements
+#### Supported Marketplaces
+- North America: amazon.com, amazon.ca, amazon.com.mx
+- Europe: amazon.de, amazon.co.uk, amazon.fr, amazon.it, amazon.es, amazon.nl, amazon.se, amazon.pl
+- Asia Pacific: amazon.co.jp, amazon.com.au, amazon.in, amazon.sg
+- Other: amazon.com.br, amazon.ae, amazon.eg, amazon.tr
 
-## [1.5.0] - 2026-03-13
+#### Technical
+- Manifest Version 3 (MV3)
+- Minimum Firefox Version: 109.0
+- Stable extension UUID for consistent testing
+- Privacy-first architecture with local storage only
 
-### Added
-- WCAG 2.2 AA accessibility compliance
-- Skip link for keyboard navigation
-- Live region announcer for screen readers
-- Legal disclosure page
-- Privacy policy
-
-## [1.4.1] - 2026-03-13
-
-### Fixed
-- Prime selection with triple-layer detection
-- Universal shorthand for cross-region reliability
-
-## [1.4.0] - 2026-03-13
-
-### Added
-- Search interception for pre-emptive parameter injection
-- Throttling to prevent infinite loops
-
-## [1.3.0] - 2026-03-13
-
-### Added
-- Pure DOM strategy for silent filtering
+#### Support
+- Buy Me a Coffee integration
+- PayPal Donate integration
+- GitHub repository for source code and issue tracking
