@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Prime Sorter Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+        <h1>Prime Sorter</h1>
+      </div>
+      <p class="subtitle">Auto Prime & Lowest Price</p>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="settings">Settings</button>
+      <button class="tab-btn" data-tab="legal">Legal</button>
+      <button class="tab-btn" data-tab="support">Support</button>
+    </nav>
+
+    <!-- Tab Content -->
+    <main class="content">
+      
+      <!-- Settings Tab -->
+      <div class="tab-content active" id="settings">
+        
+        <!-- Master Toggle -->
+        <section class="section">
+          <div class="toggle-row">
+            <div class="toggle-label">
+              <span class="label-text">Enable Extension</span>
+              <span class="label-desc">Turn on/off all filters</span>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="enabledToggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Filter Options -->
+        <section class="section">
+          <h2 class="section-title">Filters</h2>
+
+          <div class="option-row">
+            <div class="option-label">
+              <span class="label-text">Auto-apply Prime</span>
+              <span class="label-desc">Filter Prime products</span>
+            </div>
+            <label class="toggle toggle-small">
+              <input type="checkbox" id="autoPrimeToggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="option-row">
+            <div class="option-label">
+              <span class="label-text">Auto-sort Price</span>
+              <span class="label-desc">Low to high sorting</span>
+            </div>
+            <label class="toggle toggle-small">
+              <input type="checkbox" id="autoSortToggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="option-row">
+            <div class="option-label">
+              <span class="label-text">Notifications</span>
+              <span class="label-desc">Show filter toasts</span>
+            </div>
+            <label class="toggle toggle-small">
+              <input type="checkbox" id="notificationsToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Marketplaces -->
+        <section class="section">
+          <h2 class="section-title">Marketplaces</h2>
+          <p class="section-desc">Select enabled regions</p>
+
+          <div class="marketplace-list" id="marketplaceList">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="marketplace-actions">
+            <button id="selectAllBtn" class="btn btn-secondary">Select All</button>
+            <button id="deselectAllBtn" class="btn btn-secondary">Deselect All</button>
+          </div>
+        </section>
+
+        <!-- Reset -->
+        <section class="section section-last">
+          <button id="resetBtn" class="btn btn-danger">Reset to Defaults</button>
+        </section>
+      </div>
+
+      <!-- Legal Tab -->
+      <div class="tab-content" id="legal">
+        <section class="section">
+          <h2 class="section-title">What This Does</h2>
+          <div class="legal-text">
+            <p>Automatically applies Prime filter and sorts by price on Amazon search results.</p>
+            
+            <h3>Privacy</h3>
+            <ul>
+              <li>No data collection</li>
+              <li>Local storage only</li>
+              <li>No tracking or analytics</li>
+              <li>GDPR compliant</li>
+            </ul>
+
+            <h3>Compliance</h3>
+            <ul>
+              <li>Uses standard DOM APIs</li>
+              <li>No Amazon API access</li>
+              <li>User-side automation only</li>
+            </ul>
+
+            <h3>Disclaimer</h3>
+            <p>Not affiliated with Amazon. Amazon, Prime, and logos are trademarks of Amazon.com, Inc.</p>
+            
+            <p class="legal-version">Version 2.0.0 • March 2026</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Support Tab -->
+      <div class="tab-content" id="support">
+        <section class="section">
+          <h2 class="section-title">Support Development</h2>
+          <p class="section-desc">If this extension helps you save money, consider supporting its development!</p>
+          
+          <div class="donation-buttons">
+            <a href="https://buymeacoffee.com/codingiymynewgaming" target="_blank" rel="noopener" class="donate-btn bmac">
+              <svg class="coffee-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2 21v-2h18v2H2zm2-4v-2h14v2H4zm2-4V9a4 4 0 014-4h6a4 4 0 014 4v4H6zm2-4v2h10v-2a2 2 0 00-2-2H8a2 2 0 00-2 2z"/>
+              </svg>
+              <span>Buy Me a Coffee</span>
+            </a>
+            
+            <a href="https://www.paypal.com/donate/?hosted_button_id=ZXHJFTUW9NQK8" target="_blank" rel="noopener" class="donate-btn paypal">
+              <svg class="paypal-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.5 7.5c.6 0 1.1.2 1.5.5.4.4.6.9.6 1.5 0 2.4-1.6 4.5-4 4.5h-2.5l-.5 3h-3l.5-3H9.5c-.6 0-1.1-.2-1.5-.5-.4-.4-.6-.9-.6-1.5 0-2.4 1.6-4.5 4-4.5h8.1z"/>
+              </svg>
+              <span>PayPal</span>
+            </a>
+          </div>
+          
+          <div class="support-info">
+            <p><strong>Thank you!</strong> Your support helps keep this extension free and ad-free.</p>
+          </div>
+        </section>
+        
+        <section class="section">
+          <h2 class="section-title">Links</h2>
+          <div class="links-list">
+            <a href="https://github.com/amazon-prime-sorter/amazon-prime-all-autoselect" target="_blank" rel="noopener" class="link-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+              </svg>
+              GitHub Repository
+            </a>
+            <a href="https://github.com/amazon-prime-sorter/amazon-prime-all-autoselect/issues" target="_blank" rel="noopener" class="link-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v4m0 4h.01"/>
+              </svg>
+              Report Issue
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer-version">v2.0.0</p>
+    </footer>
+  </div>
+
+  <script src="../lib/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

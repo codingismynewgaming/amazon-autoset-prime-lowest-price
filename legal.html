@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Disclosure - Amazon Prime Sorter</title>
+  <style>
+    :root {
+      --amazon-navy: #232f3e;
+      --amazon-orange: #FF9900;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --border: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Amazon Ember", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .container {
+      background: var(--bg-primary);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      border-bottom: 3px solid var(--amazon-orange);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--amazon-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--amazon-navy);
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    li {
+      padding: 0.5rem 0;
+      padding-left: 1.75rem;
+      position: relative;
+      color: var(--text-secondary);
+    }
+
+    li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #067D62;
+      font-weight: 700;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+      border-left: 4px solid var(--amazon-orange);
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .highlight strong {
+      color: var(--amazon-navy);
+    }
+
+    .warning {
+      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+      border-left: 4px solid #dc2626;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .info {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      border-left: 4px solid #2563eb;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    a {
+      color: #007185;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--border);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #067D62;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Legal Disclosure</h1>
+      <p class="subtitle">Amazon Prime Sorter Extension</p>
+    </header>
+
+    <section>
+      <h2>What This Extension Does</h2>
+      <p>
+        Amazon Prime Sorter is a browser extension that enhances your Amazon shopping experience by automatically:
+      </p>
+      <ul>
+        <li>Applying the Prime delivery filter to show only Prime-eligible products</li>
+        <li>Sorting search results by price (low to high) to help you find the best deals</li>
+        <li>Working silently in the background without interrupting your browsing</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>🔒 Privacy-First Design:</strong> This extension operates entirely within your browser. No data is sent to our servers (because we don't have any). All settings are stored locally in your browser's storage.
+      </div>
+    </section>
+
+    <section>
+      <h2>Data & Privacy <span class="badge">GDPR Compliant</span></h2>
+      
+      <h3>No Data Collection</h3>
+      <p>
+        We do not collect, store, process, or transmit any personal information. This includes:
+      </p>
+      <ul>
+        <li>No browsing history tracking</li>
+        <li>No search queries logged</li>
+        <li>No purchase data collected</li>
+        <li>No cookies set by the extension</li>
+        <li>No analytics or telemetry</li>
+        <li>No fingerprinting or device identification</li>
+      </ul>
+
+      <h3>Local Storage Only</h3>
+      <p>
+        The extension uses your browser's built-in storage (chrome.storage.sync) to save your preferences, such as:
+      </p>
+      <ul>
+        <li>Whether the extension is enabled or disabled</li>
+        <li>Which marketplaces you've enabled</li>
+        <li>Your notification preferences</li>
+      </ul>
+      <p>
+        This data never leaves your device and is only accessible by the extension.
+      </p>
+
+      <h3>DOM Interaction</h3>
+      <p>
+        The extension works by interacting with Amazon's webpage structure (DOM). It:
+      </p>
+      <ul>
+        <li>Reads the current page URL to detect search results</li>
+        <li>Clicks filter elements on your behalf (just like you would)</li>
+        <li>Modifies form submissions to include Prime parameters</li>
+        <li>Displays optional notification toasts</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Compliance & Legal</h2>
+
+      <h3>Amazon Terms of Service</h3>
+      <p>
+        This extension complies with Amazon's Terms of Service by:
+      </p>
+      <ul>
+        <li>Using only standard browser APIs and DOM manipulation</li>
+        <li>Not scraping, crawling, or indexing Amazon's data</li>
+        <li>Not automating purchases or creating accounts</li>
+        <li>Not bypassing any Amazon security measures</li>
+        <li>Operating as a user-side accessibility tool</li>
+      </ul>
+
+      <div class="info">
+        <strong>Fair Use:</strong> This extension is a personal productivity tool that automates actions you could perform manually. It does not access Amazon's APIs or internal systems.
+      </div>
+
+      <h3>GDPR Compliance</h3>
+      <p>
+        Under the General Data Protection Regulation (GDPR), this extension:
+      </p>
+      <ul>
+        <li>Processes no personal data (Article 4)</li>
+        <li>Requires no consent mechanism (no data processing)</li>
+        <li>Stores all data locally (no cross-border transfers)</li>
+        <li>Is transparent about its operation (open source)</li>
+      </ul>
+
+      <h3>CCPA Compliance</h3>
+      <p>
+        Under the California Consumer Privacy Act (CCPA), this extension:
+      </p>
+      <ul>
+        <li>Does not sell or share personal information</li>
+        <li>Does not collect sensitive personal information</li>
+        <li>Requires no disclosure notices (no data collection)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Trademark Notice</h2>
+      <p>
+        This extension is <strong>not affiliated with, endorsed by, or sponsored by</strong> Amazon.com, Inc. or its affiliates.
+      </p>
+      <p>
+        Amazon, Prime, the Amazon logo, and all related trademarks are property of Amazon.com, Inc. or its affiliates. All other trademarks remain the property of their respective owners.
+      </p>
+
+      <div class="warning">
+        <strong>Disclaimer:</strong> This extension is provided "as is" without any warranty. The developers are not responsible for any issues arising from its use, including but not limited to changes in Amazon's website structure, pricing errors, or availability of products.
+      </div>
+    </section>
+
+    <section>
+      <h2>Open Source</h2>
+      <p>
+        This extension is open source and transparent. You can review the entire codebase to verify:
+      </p>
+      <ul>
+        <li>No data collection or transmission code exists</li>
+        <li>No analytics or tracking libraries are included</li>
+        <li>All functionality is exactly as described</li>
+      </ul>
+      <p>
+        Transparency is core to our approach. If you can't verify it in the code, it's not in the extension.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        For questions, concerns, or bug reports, please contact the developer through the extension's support page on the Mozilla Add-ons store or GitHub repository.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <strong>Version:</strong> 1.5.0 &bull; 
+        <strong>Last Updated:</strong> March 13, 2026
+      </p>
+      <p>
+        Built with ❤️ for smarter Amazon shopping
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
