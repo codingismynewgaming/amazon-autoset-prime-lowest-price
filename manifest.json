@@ -83,9 +83,9 @@
       "id": "{a1b2c3d4-e5f6-7890-abcd-ef1234567890}",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
-        "required": false,
-        "internal": false,
-        "third_party": false,
+        "required": [],
+        "internal": [],
+        "third_party": [],
         "description": "This extension does not collect any data. All settings are stored locally in your browser."
       }
     },
