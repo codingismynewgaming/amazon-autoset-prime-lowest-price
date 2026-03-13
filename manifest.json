@@ -81,7 +81,12 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "{a1b2c3d4-e5f6-7890-abcd-ef1234567890}",
-      "strict_min_version": "109.0"
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "internal": false,
+        "third_party": false,
+        "description": "This extension does not collect any data. All settings are stored locally in your browser."
+      }
     },
     "gecko_android": {
       "strict_min_version": "109.0"

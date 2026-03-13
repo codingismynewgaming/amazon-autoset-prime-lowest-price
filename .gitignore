@@ -18,3 +18,7 @@ npm-debug.log*
 # Build files
 *.zip
 *.xpi
+web-ext-artifacts/
+
+# Environment files (API credentials)
+.env
