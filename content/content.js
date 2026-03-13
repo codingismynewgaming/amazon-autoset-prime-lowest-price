@@ -77,7 +77,16 @@
       document.body.appendChild(container);
     }
 
-    container.innerHTML = `<span style="color: #ff9900; margin-right: 8px; font-weight: bold;">✓</span> ${message}`;
+    // Use DOM methods instead of innerHTML (safer, no XSS risk)
+    container.innerHTML = '';
+    const icon = document.createElement('span');
+    icon.style.color = '#ff9900';
+    icon.style.marginRight = '8px';
+    icon.style.fontWeight = 'bold';
+    icon.textContent = '✓';
+    const text = document.createTextNode(message);
+    container.appendChild(icon);
+    container.appendChild(text);
     
     // Animate in
     requestAnimationFrame(() => {
