@@ -2,47 +2,69 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.0] - 2026-03-13
+## [1.0.5] - 2026-11-17
+
+### Renamed
+- Extension name is now "Prime Filter & Price Sort for Amazon" (better findability on Mozilla Add-ons). Extension ID and stored settings are unchanged.
+
+### Added
+- Toggle "Auto-apply Sort" in the popup; the sort order radios are disabled while it is off.
 
 ### Changed
-- **New Name**: Renamed to "Amazon Prime All Autoselect & Lowest Price Sorting"
-- **Compact UI**: Smaller popup size (340px width) per Mozilla recommendations
-- **Smaller Fonts**: Reduced font sizes throughout (11-12px base)
-- **Tab Navigation**: Separated Settings, Legal, and Support into tabs
-- **Dark Mode Support**: Automatic theme adaptation based on browser preference
-
-### Added
-- **Support Tab**: Buy Me a Coffee and PayPal donation buttons
-- **GitHub Repository**: Public source code and issue tracking
-- **Compact Design**: Optimized for Mozilla Add-ons guidelines
-
-### Removed
-- Accessibility features (skip links, live announcers, ARIA attributes)
-- Verbose legal text in popup
-- Large header and oversized UI elements
-
-## [1.5.0] - 2026-03-13
-
-### Added
-- WCAG 2.2 AA accessibility compliance
-- Skip link for keyboard navigation
-- Live region announcer for screen readers
-- Legal disclosure page
-- Privacy policy
-
-## [1.4.1] - 2026-03-13
+- Search navigations are rewritten in the background script (`webRequest`, blocking) before the first request, so the results page loads only once. New permissions: `webRequest`, `webRequestBlocking`.
+- Only fresh searches are rewritten. Sorting, filters and paging chosen on the results page (`ref=sr_*`) are left alone; an explicit `s=` in the URL is never overridden.
+- Prime filter uses facets measured on the live sites (`p_n_free_shipping_eligible` on de, co.uk, fr, it, es, nl, pl, in, com.mx, com.br; `p_85` on com). Marketplaces without a verified facet (se, ca, co.jp, com.au, sg, ae, eg, tr) get sorting only.
 
 ### Fixed
-- Prime selection with triple-layer detection
-- Universal shorthand for cross-region reliability
+- Marketplace selection in the popup is now respected.
+- Login and other non-search forms no longer receive injected parameters.
+- Loop guard against repeated redirects.
+- Version strings in the popup match the manifest.
 
-## [1.4.0] - 2026-03-13
+### Removed
+- Fetch/XHR inline patch, form submit hook, unused background messages and debug logging.
 
-### Added
-- Search interception for pre-emptive parameter injection
-- Throttling to prevent infinite loops
+## [1.0.2] - 2026-03-14
 
-## [1.3.0] - 2026-03-13
+### Fixed
+- Intercepted page requests (fetch/XHR) to inject Prime + sort before the request is sent.
+- Search submit interception now falls back to async settings load if cache is not ready.
 
-### Added
-- Pure DOM strategy for silent filtering
+## [1.0.1] - 2026-03-14
+
+### Fixed
+- Single-reload application: Prime + sort now applied in one URL rewrite when needed.
+- Search submit interception now updates existing `rh` and `s` params instead of skipping them.
+
+## [1.0.0] - 2026-03-13
+
+### Initial Release
+
+#### Features
+- **Auto Prime Filter**: Automatically applies "All Prime" filter to show only Prime-eligible items
+- **Auto Price Sorting**: Instantly sorts results from lowest to highest price
+- **Global Support**: Works on all Amazon marketplaces worldwide
+- **Privacy First**: No data collection, everything runs locally in your browser
+- **Dark Mode**: Automatically adapts to your browser's dark/light theme
+- **Tab-based UI**: Settings, Legal, and Support tabs
+- **Compact Design**: Optimized popup size (340px width) per Mozilla recommendations
+
+#### Bug Fixes
+- **Price Sorting Fixed**: Changed from dropdown event dispatching to URL navigation for reliable sorting
+
+#### Supported Marketplaces
+- North America: amazon.com, amazon.ca, amazon.com.mx
+- Europe: amazon.de, amazon.co.uk, amazon.fr, amazon.it, amazon.es, amazon.nl, amazon.se, amazon.pl
+- Asia Pacific: amazon.co.jp, amazon.com.au, amazon.in, amazon.sg
+- Other: amazon.com.br, amazon.ae, amazon.eg, amazon.tr
+
+#### Technical
+- Manifest Version 3 (MV3)
+- Minimum Firefox Version: 109.0
+- Stable extension UUID for consistent testing
+- Privacy-first architecture with local storage only
+
+#### Support
+- Buy Me a Coffee integration
+- PayPal Donate integration
+- GitHub repository for source code and issue tracking

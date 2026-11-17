@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amazon Prime Sorter Settings</title>
+  <title>Prime Filter &amp; Price Sort for Amazon: Settings</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
@@ -16,9 +16,9 @@
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
           </svg>
         </div>
-        <h1>Prime Sorter</h1>
+        <h1>Prime Filter &amp; Price Sort</h1>
       </div>
-      <p class="subtitle">Auto Prime & Lowest Price</p>
+      <p class="subtitle">for Amazon</p>
     </header>
 
     <!-- Tab Navigation -->
@@ -65,13 +65,30 @@
 
           <div class="option-row">
             <div class="option-label">
-              <span class="label-text">Auto-sort Price</span>
-              <span class="label-desc">Low to high sorting</span>
+              <span class="label-text">Auto-apply Sort</span>
+              <span class="label-desc">Sort new searches automatically</span>
             </div>
             <label class="toggle toggle-small">
               <input type="checkbox" id="autoSortToggle" checked>
               <span class="toggle-slider"></span>
             </label>
+          </div>
+
+          <div class="option-row sort-options" id="sortOptions">
+            <div class="option-label">
+              <span class="label-text">Sort By</span>
+              <span class="label-desc">Select default sort order</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="sortBy" value="price-asc-rank" id="sortPrice" checked>
+                <span>Price: Low to High</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="sortBy" value="review-rank" id="sortReview">
+                <span>Avg. Customer Review</span>
+              </label>
+            </div>
           </div>
 
           <div class="option-row">
@@ -112,7 +129,7 @@
         <section class="section">
           <h2 class="section-title">What This Does</h2>
           <div class="legal-text">
-            <p>Automatically applies Prime filter and sorts by price on Amazon search results.</p>
+            <p>Automatically applies Prime filter and sorts by price or customer review on new Amazon searches.</p>
             
             <h3>Privacy</h3>
             <ul>
@@ -132,7 +149,7 @@
             <h3>Disclaimer</h3>
             <p>Not affiliated with Amazon. Amazon, Prime, and logos are trademarks of Amazon.com, Inc.</p>
             
-            <p class="legal-version">Version 2.0.0 • March 2026</p>
+            <p class="legal-version">Version 1.0.5</p>
           </div>
         </section>
       </div>
@@ -158,36 +175,34 @@
               <span>PayPal</span>
             </a>
           </div>
-          
-          <div class="support-info">
-            <p><strong>Thank you!</strong> Your support helps keep this extension free and ad-free.</p>
-          </div>
         </section>
         
         <section class="section">
           <h2 class="section-title">Links</h2>
-          <div class="links-list">
-            <a href="https://github.com/amazon-prime-sorter/amazon-prime-all-autoselect" target="_blank" rel="noopener" class="link-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
-              </svg>
-              GitHub Repository
-            </a>
-            <a href="https://github.com/amazon-prime-sorter/amazon-prime-all-autoselect/issues" target="_blank" rel="noopener" class="link-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 8v4m0 4h.01"/>
-              </svg>
-              Report Issue
-            </a>
-          </div>
+ <div class="links-list">
+ <a href="https://github.com/codingismynewgaming/amazon-autoset-prime-lowest-price" target="_blank" rel="noopener" class="link-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+ </svg>
+ GitHub Repository
+ </a>
+ </div>
+
+ <div class="donation-buttons support-buttons">
+ <a href="https://github.com/codingismynewgaming/amazon-autoset-prime-lowest-price/issues" target="_blank" rel="noopener" class="donate-btn github-btn">
+ <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+ <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+ </svg>
+ <span>Submit Issue / Request Feature</span>
+ </a>
+ </div>
         </section>
       </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <p class="footer-version">v2.0.0</p>
+      <p class="footer-version">v1.0.5</p>
     </footer>
   </div>
 

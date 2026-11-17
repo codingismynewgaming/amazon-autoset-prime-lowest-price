@@ -1,4 +1,4 @@
-# Amazon Prime Sorter - Icon
+# Prime Filter & Price Sort for Amazon - Icon
 
 ## How to Create the Icon
 

@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     enabledToggle: document.getElementById('enabledToggle'),
     autoPrimeToggle: document.getElementById('autoPrimeToggle'),
     autoSortToggle: document.getElementById('autoSortToggle'),
+    sortOptions: document.getElementById('sortOptions'),
+    sortPriceRadio: document.getElementById('sortPrice'),
+    sortReviewRadio: document.getElementById('sortReview'),
     notificationsToggle: document.getElementById('notificationsToggle'),
     marketplaceList: document.getElementById('marketplaceList'),
     selectAllBtn: document.getElementById('selectAllBtn'),
@@ -37,6 +40,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       elements.autoSortToggle.checked = currentSettings.autoSort;
       elements.notificationsToggle.checked = currentSettings.showNotifications;
 
+      // Populate sort radio buttons
+      if (currentSettings.sortOption === 'review-rank') {
+        elements.sortReviewRadio.checked = true;
+      } else {
+        elements.sortPriceRadio.checked = true;
+      }
+      updateSortOptionsState();
+
       // Populate marketplace list
       renderMarketplaceList();
 
@@ -53,28 +64,44 @@ document.addEventListener('DOMContentLoaded', async () => {
     const enabledMarketplaces = currentSettings.enabledMarketplaces;
     const allEnabled = enabledMarketplaces === null;
 
-    elements.marketplaceList.innerHTML = allMarketplaces
-      .map(mp => {
-        const isEnabled = allEnabled || enabledMarketplaces?.includes(mp.domain);
-        return `
-          <div class="marketplace-item" data-domain="${mp.domain}">
-            <input
-              type="checkbox"
-              id="mp-${mp.domain}"
-              data-domain="${mp.domain}"
-              ${isEnabled ? 'checked' : ''}
-            >
-            <div class="marketplace-info">
-              <div class="marketplace-name">
-                ${mp.name}
-                <span class="marketplace-region">${mp.region}</span>
-              </div>
-              <div class="marketplace-domain">${mp.domain}</div>
-            </div>
-          </div>
-        `;
-      })
-      .join('');
+    // Build marketplace items using DOM methods (safer than innerHTML)
+    elements.marketplaceList.innerHTML = '';
+    
+    allMarketplaces.forEach(mp => {
+      const isEnabled = allEnabled || enabledMarketplaces?.includes(mp.domain);
+      
+      const item = document.createElement('div');
+      item.className = 'marketplace-item';
+      item.setAttribute('data-domain', mp.domain);
+      
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = `mp-${mp.domain}`;
+      checkbox.setAttribute('data-domain', mp.domain);
+      checkbox.checked = isEnabled;
+      
+      const info = document.createElement('div');
+      info.className = 'marketplace-info';
+      
+      const name = document.createElement('div');
+      name.className = 'marketplace-name';
+      name.textContent = mp.name;
+      
+      const region = document.createElement('span');
+      region.className = 'marketplace-region';
+      region.textContent = mp.region;
+      
+      const domain = document.createElement('div');
+      domain.className = 'marketplace-domain';
+      domain.textContent = mp.domain;
+      
+      name.appendChild(region);
+      info.appendChild(name);
+      info.appendChild(domain);
+      item.appendChild(checkbox);
+      item.appendChild(info);
+      elements.marketplaceList.appendChild(item);
+    });
 
     // Add event listeners to marketplace checkboxes
     elements.marketplaceList.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
@@ -127,6 +154,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   /**
+   * Enable/disable the sort radio buttons depending on the sort toggle
+   */
+  function updateSortOptionsState() {
+    const active = elements.autoSortToggle.checked;
+    elements.sortPriceRadio.disabled = !active;
+    elements.sortReviewRadio.disabled = !active;
+    elements.sortOptions.classList.toggle('is-disabled', !active);
+  }
+
+  /**
    * Tab Switching
    */
   function switchTab(tabId) {
@@ -167,7 +204,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Auto Sort toggle
   elements.autoSortToggle.addEventListener('change', async (e) => {
     currentSettings.autoSort = e.target.checked;
+    updateSortOptionsState();
     await updateAndSaveSettings();
+  });
+
+  // Sort radio buttons
+  elements.sortPriceRadio.addEventListener('change', async () => {
+    if (elements.sortPriceRadio.checked) {
+      currentSettings.sortOption = 'price-asc-rank';
+      await updateAndSaveSettings();
+    }
+  });
+
+  elements.sortReviewRadio.addEventListener('change', async () => {
+    if (elements.sortReviewRadio.checked) {
+      currentSettings.sortOption = 'review-rank';
+      await updateAndSaveSettings();
+    }
   });
 
   // Notifications toggle
