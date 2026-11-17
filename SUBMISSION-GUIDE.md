@@ -36,12 +36,12 @@
 
 3. **Choose:** "Host it myself" (self-hosted)
 
-4. **Upload:** `amazon-autoset-prime-v1.0.0.xpi`
+4. **Upload:** `amazon-autoset-prime-v1.0.2.xpi`
 
 5. **Fill in Store Listing:**
 
    **Basic Info:**
-   - **Name:** Amazon Prime Autoset: Filter & Sort
+   - **Name:** Prime Filter & Price Sort for Amazon
    - **Category:** Shopping
    - **License:** MIT
    
@@ -54,7 +54,7 @@
    ```
    🛒 Shop Smarter on Amazon
 
-   Amazon Prime Autoset automatically filters for Prime-eligible products and sorts by price (low to high) on every Amazon search. Find the best deals instantly!
+   Prime Filter & Price Sort for Amazon automatically filters for Prime-eligible products and sorts by price (low to high) on every Amazon search. Find the best deals instantly!
 
    ✨ Features:
    • Auto Prime Filter - Shows only Prime-eligible items
@@ -87,9 +87,9 @@
 
 ## Current Status
 
-✅ **Extension Ready:** `amazon-autoset-prime-v1.0.0.xpi` (21.47 KB)  
+✅ **Extension Ready:** `amazon-autoset-prime-v1.0.2.xpi` (21.47 KB)  
 ✅ **Linting Passed:** 0 errors, 4 warnings (non-blocking)  
-✅ **Name Fixed:** "Amazon Prime Autoset: Filter & Sort" (38 chars, under 45 limit)  
+✅ **Name Fixed:** "Prime Filter & Price Sort for Amazon" (36 chars, under 50 limit)  
 ✅ **All Icons:** 16px, 32px, 48px, 96px, 128px  
 ✅ **Manifest V3:** Compatible  
 

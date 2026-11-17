@@ -9,7 +9,7 @@ Automatically apply Prime filters and sort by lowest price on Amazon. Privacy-fi
 
 **Option 2 (180 characters):**
 ```
-Amazon Prime Autoset automatically filters Prime products and sorts by lowest price. Works on all Amazon marketplaces. Privacy-first with no data collection.
+Prime Filter & Price Sort for Amazon automatically filters Prime products and sorts by lowest price. Works on all Amazon marketplaces. Privacy-first with no data collection.
 ```
 
 **Option 3 (230 characters):**
@@ -24,7 +24,7 @@ Automatically apply Prime filters and sort by lowest price on Amazon search resu
 ```
 🛒 Shop Smarter on Amazon
 
-Amazon Prime Autoset automatically filters for Prime-eligible products and sorts by price (low to high) on every Amazon search. Find the best deals instantly!
+Prime Filter & Price Sort for Amazon automatically filters for Prime-eligible products and sorts by price (low to high) on every Amazon search. Find the best deals instantly!
 
 ✨ Key Features:
 • Auto Prime Filter - Shows only Prime-eligible items

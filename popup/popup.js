@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     enabledToggle: document.getElementById('enabledToggle'),
     autoPrimeToggle: document.getElementById('autoPrimeToggle'),
     autoSortToggle: document.getElementById('autoSortToggle'),
+    sortOptions: document.getElementById('sortOptions'),
+    sortPriceRadio: document.getElementById('sortPrice'),
+    sortReviewRadio: document.getElementById('sortReview'),
     notificationsToggle: document.getElementById('notificationsToggle'),
     marketplaceList: document.getElementById('marketplaceList'),
     selectAllBtn: document.getElementById('selectAllBtn'),
@@ -36,6 +39,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       elements.autoPrimeToggle.checked = currentSettings.autoPrime;
       elements.autoSortToggle.checked = currentSettings.autoSort;
       elements.notificationsToggle.checked = currentSettings.showNotifications;
+
+      // Populate sort radio buttons
+      if (currentSettings.sortOption === 'review-rank') {
+        elements.sortReviewRadio.checked = true;
+      } else {
+        elements.sortPriceRadio.checked = true;
+      }
+      updateSortOptionsState();
 
       // Populate marketplace list
       renderMarketplaceList();
@@ -143,6 +154,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   /**
+   * Enable/disable the sort radio buttons depending on the sort toggle
+   */
+  function updateSortOptionsState() {
+    const active = elements.autoSortToggle.checked;
+    elements.sortPriceRadio.disabled = !active;
+    elements.sortReviewRadio.disabled = !active;
+    elements.sortOptions.classList.toggle('is-disabled', !active);
+  }
+
+  /**
    * Tab Switching
    */
   function switchTab(tabId) {
@@ -183,7 +204,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Auto Sort toggle
   elements.autoSortToggle.addEventListener('change', async (e) => {
     currentSettings.autoSort = e.target.checked;
+    updateSortOptionsState();
     await updateAndSaveSettings();
+  });
+
+  // Sort radio buttons
+  elements.sortPriceRadio.addEventListener('change', async () => {
+    if (elements.sortPriceRadio.checked) {
+      currentSettings.sortOption = 'price-asc-rank';
+      await updateAndSaveSettings();
+    }
+  });
+
+  elements.sortReviewRadio.addEventListener('change', async () => {
+    if (elements.sortReviewRadio.checked) {
+      currentSettings.sortOption = 'review-rank';
+      await updateAndSaveSettings();
+    }
   });
 
   // Notifications toggle

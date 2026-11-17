@@ -1,12 +1,14 @@
-# Amazon Autoset All Prime Delivery & Sort Price Low to High
+# Prime Filter & Price Sort for Amazon
 
-A browser extension that automatically applies Prime filters and sorts products by lowest price on Amazon search results.
+A Firefox extension that automatically filters Amazon searches to Prime and sorts them by lowest price or best customer review.
 
 ## Features
 
 - **Auto Prime Filter**: Automatically applies "All Prime" filter to show only Prime-eligible items
-- **Auto Price Sorting**: Instantly sorts results from lowest to highest price
-- **Global Support**: Works on all Amazon marketplaces worldwide
+- **Auto Sorting (optional)**: Sorts new searches by lowest price or by average customer review; can be switched off
+- **Single Page Load**: Parameters are added before the request is sent, no extra reload
+- **Respects Your Choices**: Sorting and filters you change on the results page are left alone
+- **Global Support**: Works on Amazon marketplaces worldwide (Prime filter verified for de, com, co.uk, fr, it, es, nl, pl, in, com.mx, com.br)
 - **Privacy First**: No data collection, everything runs locally in your browser
 - **Dark Mode**: Automatically adapts to your browser's dark/light theme
 
@@ -14,13 +16,13 @@ A browser extension that automatically applies Prime filters and sorts products 
 
 - North America: amazon.com, amazon.ca, amazon.com.mx
 - Europe: amazon.de, amazon.co.uk, amazon.fr, amazon.it, amazon.es, amazon.nl, amazon.se, amazon.pl
-- Asia Pacific: amazon.co.jp, amazon.com.au, amazon.com.in, amazon.sg
+- Asia Pacific: amazon.co.jp, amazon.com.au, amazon.in, amazon.sg
 - Other: amazon.com.br, amazon.ae, amazon.eg, amazon.tr
 
 ## Installation
 
 ### Firefox (Mozilla Add-ons)
-1. Visit the [Mozilla Add-ons page](https://addons.mozilla.org/firefox/addon/amazon-autoset-prime/) (pending submission)
+1. Visit the [Mozilla Add-ons page](https://addons.mozilla.org/firefox/addon/amazon-all-prime-sort-price/)
 2. Click "Add to Firefox"
 3. Confirm the installation
 
@@ -42,7 +44,7 @@ A browser extension that automatically applies Prime filters and sorts products 
 ### Settings Tab
 - Master enable/disable toggle
 - Auto-apply Prime filter
-- Auto-sort by price (low to high)
+- Auto-sort on/off, with price (low to high) or average customer review
 - Enable/disable notifications
 - Marketplace selection
 
@@ -69,8 +71,8 @@ This extension:
 ## Technical Details
 
 - **Manifest Version**: 3 (MV3)
-- **Minimum Firefox Version**: 109.0
-- **Permissions**: storage, host permissions for Amazon domains
+- **Minimum Firefox Version**: 140.0 (Android 142.0)
+- **Permissions**: storage, webRequest, webRequestBlocking (rewrites Amazon search URLs only), host permissions for Amazon domains
 
 ## Support Development
 

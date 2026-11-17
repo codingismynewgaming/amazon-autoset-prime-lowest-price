@@ -1,8 +1,8 @@
 # Mozilla Add-ons Submission Package
 
-**Extension:** Amazon Autoset All Prime Delivery & Sort Price Low to High  
-**Version:** 1.0.0  
-**Date:** March 13, 2026
+**Extension:** Prime Filter & Price Sort for Amazon  
+**Version:** 1.0.2  
+**Date:** March 14, 2026
 
 ---
 
@@ -32,8 +32,8 @@ This package contains everything needed for Mozilla Add-ons submission:
 ```json
 {
   "manifest_version": 3,
-  "name": "Amazon Autoset All Prime Delivery & Sort Price Low to High",
-  "version": "1.0.0",
+  "name": "Prime Filter & Price Sort for Amazon",
+  "version": "1.0.2",
   "browser_specific_settings": {
     "gecko": {
       "id": "{a1b2c3d4-e5f6-7890-abcd-ef1234567890}",
@@ -131,7 +131,7 @@ This package contains everything needed for Mozilla Add-ons submission:
 ### Step 3: Fill in Store Listing
 
 #### Basic Information
-- **Name:** Amazon Autoset All Prime Delivery & Sort Price Low to High
+- **Name:** Prime Filter & Price Sort for Amazon
 - **Short Description:** Automatically apply Prime filters and sort by lowest price on Amazon. Privacy-first with no data collection.
 - **Category:** Shopping
 - **License:** MIT
@@ -140,7 +140,7 @@ This package contains everything needed for Mozilla Add-ons submission:
 ```
 🛒 Shop Smarter on Amazon
 
-Amazon Autoset All Prime Delivery & Sort Price Low to High automatically filters for Prime-eligible products and sorts by price (low to high) on every Amazon search. Find the best deals instantly without manually clicking filters on every search.
+Prime Filter & Price Sort for Amazon automatically filters for Prime-eligible products and sorts by price (low to high) on every Amazon search. Find the best deals instantly without manually clicking filters on every search.
 
 ✨ Key Features:
 • Auto Prime Filter - Automatically applies "All Prime" filter
@@ -322,7 +322,7 @@ Before submitting, verify:
 - [x] All files included
 - [x] Icons present (all 5 sizes)
 - [x] Manifest valid JSON
-- [x] Version is 1.0.0
+- [x] Version is 1.0.2
 - [x] Extension ID is stable UUID
 - [x] No console.log statements (minimal only)
 - [x] README.md included
