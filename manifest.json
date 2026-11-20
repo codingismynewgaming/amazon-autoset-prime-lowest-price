@@ -26,7 +26,7 @@
     "https://www.amazon.pl/*",
     "https://www.amazon.sg/*",
     "https://www.amazon.ae/*",
-    "https://www.amazon.tr/*",
+    "https://www.amazon.com.tr/*",
     "https://www.amazon.eg/*"
   ],
   "content_scripts": [
@@ -49,7 +49,7 @@
         "https://www.amazon.pl/*",
         "https://www.amazon.sg/*",
         "https://www.amazon.ae/*",
-        "https://www.amazon.tr/*",
+        "https://www.amazon.com.tr/*",
         "https://www.amazon.eg/*"
       ],
       "js": [
@@ -94,6 +94,6 @@
       "strict_min_version": "142.0"
     }
   },
-  "homepage_url": "https://github.com/codingismynewgaming/amazon-autoset-prime-lowest-price",
+  "homepage_url": "https://github.com/codingismynewgaming/prime-filter-price-sort-for-amazon",
   "author": "codingismynewgaming"
 }

@@ -1033,7 +1033,7 @@ test('all 19 marketplaces have non-null primeFacet and rewrite fresh searches wi
     'amazon.sg': 'p_n_free_shipping_eligible:6966031051',
     'amazon.ae': 'p_n_free_shipping_eligible:15397661031',
     'amazon.eg': 'p_n_free_shipping_eligible:21909080031',
-    'amazon.tr': 'p_n_free_shipping_eligible:21345962031',
+    'amazon.com.tr': 'p_n_free_shipping_eligible:21345962031',
   };
 
   for (const mp of all) {

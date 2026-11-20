@@ -1,94 +1,74 @@
 # Prime Filter & Price Sort for Amazon
 
-A Firefox extension that automatically filters Amazon searches to Prime and sorts them by lowest price or best customer review.
+Applies the Amazon Prime filter and your sort order to every new Amazon search, before the page loads. Sort by lowest price or best reviews. One page load, no tracking.
 
-## Features
+[Firefox: Get the add-on](https://addons.mozilla.org/en-US/firefox/addon/amazon-all-prime-sort-price/) | Chrome: {CHROME_STORE_URL} | Edge: {EDGE_STORE_URL}
 
-- **Auto Prime Filter**: Automatically applies "All Prime" filter to show only Prime-eligible items
-- **Auto Sorting (optional)**: Sorts new searches by lowest price or by average customer review; can be switched off
-- **Single Page Load**: Parameters are added before the request is sent, no extra reload
-- **Respects Your Choices**: Sorting and filters you change on the results page are left alone
-- **Global Support**: Works on Amazon marketplaces worldwide (Prime filter verified for de, com, co.uk, fr, it, es, nl, pl, in, com.mx, com.br)
-- **Privacy First**: No data collection, everything runs locally in your browser
-- **Dark Mode**: Automatically adapts to your browser's dark/light theme
+<!-- Screenshot placeholder: docs/screenshots/screenshot-1-before-after.png (to be added once screenshots are created) -->
 
-## Supported Marketplaces
+I got tired of clicking the same two things on every Amazon search: the Prime filter and "sort by price". This extension does it for me.
 
-- North America: amazon.com, amazon.ca, amazon.com.mx
-- Europe: amazon.de, amazon.co.uk, amazon.fr, amazon.it, amazon.es, amazon.nl, amazon.se, amazon.pl
-- Asia Pacific: amazon.co.jp, amazon.com.au, amazon.in, amazon.sg
-- Other: amazon.com.br, amazon.ae, amazon.eg, amazon.tr
+## What it does
+- **Prime filter:** shows only Prime eligible items ("Prime only").
+- **Sorting (optional):** sort by lowest price (low to high) or sort by best reviews. You can turn sorting off.
+- **One page load:** the parameters are added to the search request before it is sent, so there is no reload and no flicker.
+- **Respects your choices:** if you change a filter or the sort order on the results page, the extension leaves it alone. A sort order in a shared link is never overridden.
+- **Per site control:** pick the Amazon sites it should work on.
+- **Dark mode** that follows your browser theme.
 
-## Installation
+## Supported Amazon sites
+Works on all 19 Amazon sites, including the Prime filter.
 
-### Firefox (Mozilla Add-ons)
-1. Visit the [Mozilla Add-ons page](https://addons.mozilla.org/firefox/addon/amazon-all-prime-sort-price/)
-2. Click "Add to Firefox"
-3. Confirm the installation
+| Region | Sites |
+|---|---|
+| North America | amazon.com, amazon.ca, amazon.com.mx |
+| South America | amazon.com.br |
+| Europe | amazon.co.uk, amazon.de, amazon.fr, amazon.it, amazon.es, amazon.nl, amazon.se, amazon.pl |
+| Asia Pacific | amazon.co.jp, amazon.com.au, amazon.in, amazon.sg |
+| Middle East | amazon.ae, amazon.com.tr, amazon.eg |
 
-### Manual Installation (Development)
-1. Download or clone this repository
-2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`
-3. Click "Load Temporary Add-on"
-4. Select the `manifest.json` file from this folder
+Amazon changes its pages now and then. If something stops working on your Amazon site, please [open an issue](https://github.com/codingismynewgaming/prime-filter-price-sort-for-amazon/issues).
 
-## Usage
+## Install
+- **Firefox:** [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/amazon-all-prime-sort-price/), then "Add to Firefox". Firefox 140 or newer (Android 142 or newer).
+- **Chrome:** {CHROME_STORE_URL} (coming soon; local gate build prepared in `chromium/`)
+- **Edge:** {EDGE_STORE_URL} (coming soon; local gate build prepared in `chromium/`)
+- **From source (Firefox):** clone the repo, open `about:debugging#/runtime/this-firefox`, choose "Load Temporary Add-on", select `manifest.json`.
+- **From source (Chrome / Edge local dev build):** run `node scripts/build-chromium.mjs all` and load the generated folder from `../builds/chromium/` via `chrome://extensions` or `edge://extensions` (Developer mode). Store packages are not submitted yet; see [docs/chromium-build.md](docs/chromium-build.md).
 
-1. **Enable Extension**: Click the extension icon and ensure "Enable Extension" is toggled on
-2. **Customize Filters**: Toggle Prime filter and price sorting on/off as needed
-3. **Select Marketplaces**: Choose which Amazon marketplaces to enable
-4. **Search on Amazon**: Perform any search - filters apply automatically!
+## How to use
+1. Click the extension icon and make sure the extension is on.
+2. Choose whether to apply the Prime filter and whether to sort. Pick lowest price or best reviews.
+3. Pick the Amazon sites you want.
+4. Search on Amazon as usual.
 
-## Settings
+## Screenshots
+Screenshot assets will live under `docs/screenshots/`:
+- `screenshot-1-before-after.png`
+- `screenshot-2-popup-settings.png`
+- `screenshot-3-marketplaces.png`
+- `screenshot-4-keeps-your-changes.png`
+- `screenshot-5-privacy.png`
+- `demo.gif`
 
-### Settings Tab
-- Master enable/disable toggle
-- Auto-apply Prime filter
-- Auto-sort on/off, with price (low to high) or average customer review
-- Enable/disable notifications
-- Marketplace selection
-
-### Legal Tab
-- Privacy information
-- Compliance details
-- Disclaimer
-
-### Support Tab
-- Buy Me a Coffee
-- PayPal Donate
-- GitHub Repository
-- Issue Tracker
+## Good to know
+Sorting by price from low to high is not the same as finding the cheapest product. Amazon decides what appears in the results, and sponsored items and shipping costs are not part of the sort.
 
 ## Privacy
+No data collection by the developer, no analytics, no accounts. Settings are saved with browser storage (`chrome.storage.sync` with `chrome.storage.local` fallback). Details: [PRIVACY.md](PRIVACY.md).
 
-This extension:
-- ❌ Does NOT collect any personal data
-- ❌ Does NOT track your browsing history
-- ❌ Does NOT send data to external servers
-- ✅ Stores settings locally in your browser
-- ✅ Uses only standard DOM APIs
+## Support
+Bugs and ideas: [GitHub issues](https://github.com/codingismynewgaming/prime-filter-price-sort-for-amazon/issues). Security: see [SECURITY.md](SECURITY.md).
+If this saves you some clicks, you can support the project: [Buy Me a Coffee](https://buymeacoffee.com/codingiymynewgaming) or [PayPal](https://www.paypal.com/donate/?hosted_button_id=ZXHJFTUW9NQK8).
 
-## Technical Details
-
-- **Manifest Version**: 3 (MV3)
-- **Minimum Firefox Version**: 140.0 (Android 142.0)
-- **Permissions**: storage, webRequest, webRequestBlocking (rewrites Amazon search URLs only), host permissions for Amazon domains
-
-## Support Development
-
-If this extension helps you save money, consider supporting its development:
-
-- [Buy Me a Coffee](https://buymeacoffee.com/codingiymynewgaming)
-- [PayPal Donate](https://www.paypal.com/donate/?hosted_button_id=ZXHJFTUW9NQK8)
+## Technical details
+- **Manifest Version:** 3 (MV3)
+- **Firefox (140+, Android 142+):** Rewrites search URLs in the background with `webRequest.onBeforeRequest` (blocking), with `content/content.js` as fallback. Permissions: `storage`, `webRequest`, `webRequestBlocking`, and host permissions for the 19 Amazon sites.
+- **Chrome / Edge (local build, Chromium 120+):** Dynamic `declarativeNetRequestWithHostAccess` gate rules route `/s` navigations to local `chromium/gate.html`, compute the target via shared `lib/storage.js` and `lib/rewrite.js`, install a one-time tab-scoped session allow rule, and clean up via observation-only `webRequest` and `alarms`. Permissions: `storage`, `declarativeNetRequestWithHostAccess`, `webRequest`, `alarms`, `web_accessible_resources` (`chromium/gate.html`), and host permissions for the 19 Amazon sites.
+- **URL rules:** Prime filter uses the `rh` parameter facet (`p_85` on `.com` and `.ca`, `p_n_free_shipping_eligible` on the remaining sites), and sort uses the `s` parameter. Fresh searches only (`/s` and language-prefixed paths like `/-/en/s`): URLs with `ref=sr_*`, an existing `s`, or an existing Prime facet are left untouched.
 
 ## License
-
-MIT License - See LICENSE file for details
+MIT, see [LICENSE](LICENSE).
 
 ## Disclaimer
-
-This extension is not affiliated with, endorsed by, or sponsored by Amazon.com, Inc. Amazon, Prime, and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for version history.
+This is an independent project. It is not affiliated with, endorsed by, or sponsored by Amazon.com, Inc. Amazon and Prime are trademarks of Amazon.com, Inc. or its affiliates.

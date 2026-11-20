@@ -182,21 +182,21 @@
     <section>
       <h2>What This Extension Does</h2>
       <p>
-        Prime Filter &amp; Price Sort for Amazon is a browser extension that enhances your Amazon shopping experience by automatically:
+        Prime Filter &amp; Price Sort for Amazon is a browser extension that updates new Amazon search URLs automatically:
       </p>
       <ul>
-        <li>Applying the Prime delivery filter to show only Prime-eligible products</li>
-        <li>Sorting search results by price (low to high) to help you find the best deals</li>
-        <li>Working silently in the background without interrupting your browsing</li>
+        <li>Applying the Prime filter facet to show only Prime-eligible products</li>
+        <li>Sorting search results by lowest price or best customer reviews (optional)</li>
+        <li>Rewriting new search URLs before the results page loads so the page loads once</li>
       </ul>
 
       <div class="highlight">
-        <strong>🔒 Privacy-First Design:</strong> This extension operates entirely within your browser. No data is sent to our servers (because we don't have any). All settings are stored locally in your browser's storage.
+        <strong>🔒 Privacy-First Design:</strong> This extension operates without developer servers or analytics. Settings are saved using your browser's storage API (<code>chrome.storage.sync</code> with <code>chrome.storage.local</code> fallback), and full details are in <a href="PRIVACY.md">PRIVACY.md</a>.
       </div>
     </section>
 
     <section>
-      <h2>Data & Privacy <span class="badge">GDPR Compliant</span></h2>
+      <h2>Data &amp; Privacy</h2>
       
       <h3>No Data Collection</h3>
       <p>
@@ -211,28 +211,27 @@
         <li>No fingerprinting or device identification</li>
       </ul>
 
-      <h3>Local Storage Only</h3>
+      <h3>Browser Storage</h3>
       <p>
-        The extension uses your browser's built-in storage (chrome.storage.sync) to save your preferences, such as:
+        The extension uses your browser's built-in storage (<code>chrome.storage.sync</code>, falling back to <code>chrome.storage.local</code>) to save your preferences, such as:
       </p>
       <ul>
-        <li>Whether the extension is enabled or disabled</li>
-        <li>Which marketplaces you've enabled</li>
-        <li>Your notification preferences</li>
+        <li>Whether the extension, Prime filter, and sorting are enabled</li>
+        <li>Which sort option you chose (lowest price or average customer review)</li>
+        <li>Which marketplaces you've enabled and your notification preferences</li>
       </ul>
       <p>
-        This data never leaves your device and is only accessible by the extension.
+        If browser sync is enabled, your browser vendor may sync these settings across your devices. The developer has no access to that data. Temporary loop-guard metadata per tab is kept in memory and <code>chrome.storage.session</code> and is never sent anywhere.
       </p>
 
-      <h3>DOM Interaction</h3>
+      <h3>Search URL Rewriting</h3>
       <p>
-        The extension works by interacting with Amazon's webpage structure (DOM). It:
+        The extension inspects only search URLs on the 19 supported Amazon sites. It:
       </p>
       <ul>
-        <li>Reads the current page URL to detect search results</li>
-        <li>Clicks filter elements on your behalf (just like you would)</li>
-        <li>Modifies form submissions to include Prime parameters</li>
-        <li>Displays optional notification toasts</li>
+        <li>Rewrites fresh keyword searches (<code>/s</code> and language-prefixed <code>/-/.../s</code> paths) via <code>webRequest.onBeforeRequest</code> on Firefox (or the local gate page on Chromium builds)</li>
+        <li>Leaves refinements (<code>ref=sr_*</code>), explicit <code>s=</code> sort parameters, and existing Prime facets untouched</li>
+        <li>Uses a content script as fallback and to display optional notification toasts</li>
       </ul>
     </section>
 
@@ -309,17 +308,17 @@
     <section>
       <h2>Contact</h2>
       <p>
-        For questions, concerns, or bug reports, please contact the developer through the extension's support page on the Mozilla Add-ons store or GitHub repository.
+        For questions, concerns, or bug reports, please contact the developer through the extension's support page on Mozilla Add-ons or the <a href="https://github.com/codingismynewgaming/prime-filter-price-sort-for-amazon/issues">GitHub issue tracker</a>. Full privacy details: <a href="PRIVACY.md">PRIVACY.md</a>.
       </p>
     </section>
 
     <footer class="footer">
       <p>
-        <strong>Version:</strong> 1.5.0 &bull; 
-        <strong>Last Updated:</strong> March 13, 2026
+        <strong>Version:</strong> 1.0.5 &bull; 
+        <strong>Last Updated:</strong> November 20, 2026
       </p>
       <p>
-        Built with ❤️ for smarter Amazon shopping
+        Built for smarter Amazon shopping
       </p>
     </footer>
   </div>

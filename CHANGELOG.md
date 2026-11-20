@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- Prime filter facets added for `amazon.ca`, `.se`, `.co.jp`, `.com.au`, `.sg`, `.ae`, `.eg`, `.com.tr` (and fixed Turkey domain from `amazon.tr` to `amazon.com.tr`).
+- Support for language-prefixed Amazon search paths (such as `/-/en/s`).
+- Fallback to `chrome.storage.local` when `chrome.storage.sync` fails or is unavailable.
+- Local Chromium MV3 gate build (`chromium/`, `_locales/`, `scripts/build-chromium.mjs`, `tests/chromium.test.cjs`).
+- Central `PRIVACY.md` and `docs/store-listing.md`.
+
+### Changed
+- Repository renamed to `prime-filter-price-sort-for-amazon`; updated repository, homepage, support, and privacy links.
+- Rewrote `README.md` and updated `legal.html` to match current behavior and permissions.
+- Improved popup accessibility (`aria-label`, `type="button"`) and replaced native reset confirmation with an inline prompt.
+- Updated MIT license copyright to `Jan Kuehn (codingismynewgaming)` and added `.amo-upload-uuid` to `.gitignore`.
+
+### Removed
+- Outdated `MOZILLA-SUBMISSION.md`, `SUBMISSION-GUIDE.md`, `STORE-DESCRIPTIONS.md`, `.amo-upload-uuid`, `push-to-github.ps1`, and legacy icon PowerShell scripts.
+
 ## [1.0.5] - 2026-11-17
 
 ### Renamed

@@ -114,7 +114,7 @@ Firefox-Dateien (`manifest.json`, `background/`, `content/`) bleiben unveränder
   `chromium/service-worker.js`, `chromium/gate.html`, `chromium/gate.js`,
   `chromium/content.js`
 - Gemeinsamer Kern unverändert: `lib/storage.js`, `lib/rewrite.js`
-- `docs/privacy-chrome.md` und `docs/privacy-edge.md`
+- `PRIVACY.md` (einheitliche Datenschutzerklärung für Chrome und Edge)
 
 ## Aufruf
 
