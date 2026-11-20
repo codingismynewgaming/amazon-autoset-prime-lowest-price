@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
-- Prime filter facets added for `amazon.ca`, `.se`, `.co.jp`, `.com.au`, `.sg`, `.ae`, `.eg`, `.tr`.
+- Prime filter facets added for `amazon.ca`, `.se`, `.co.jp`, `.com.au`, `.sg`, `.ae`, `.eg`, `.com.tr` (and fixed Turkey domain from `amazon.tr` to `amazon.com.tr`).
 - Support for language-prefixed Amazon search paths (such as `/-/en/s`).
 - Fallback to `chrome.storage.local` when `chrome.storage.sync` fails or is unavailable.
 - Local Chromium MV3 gate build (`chromium/`, `_locales/`, `scripts/build-chromium.mjs`, `tests/chromium.test.cjs`).

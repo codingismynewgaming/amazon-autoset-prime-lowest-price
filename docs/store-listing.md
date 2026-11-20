@@ -27,7 +27,7 @@ What it does
 - Dark mode that follows your browser theme.
 
 Where it works
-It works on all 19 Amazon sites, including the Prime filter: amazon.com, .ca, .com.mx, .com.br, .co.uk, .de, .fr, .it, .es, .nl, .se, .pl, .co.jp, .com.au, .in, .sg, .ae, .tr and .eg.
+It works on all 19 Amazon sites, including the Prime filter: amazon.com, .ca, .com.mx, .com.br, .co.uk, .de, .fr, .it, .es, .nl, .se, .pl, .co.jp, .com.au, .in, .sg, .ae, .com.tr and .eg.
 You can switch single sites off in the settings. Amazon changes its pages now and then. If something breaks on your Amazon site, please open an issue on GitHub.
 
 Privacy

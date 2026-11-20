@@ -29,7 +29,7 @@
     "https://www.amazon.pl/*",
     "https://www.amazon.sg/*",
     "https://www.amazon.ae/*",
-    "https://www.amazon.tr/*",
+    "https://www.amazon.com.tr/*",
     "https://www.amazon.eg/*"
   ],
   "content_scripts": [
@@ -52,7 +52,7 @@
         "https://www.amazon.pl/*",
         "https://www.amazon.sg/*",
         "https://www.amazon.ae/*",
-        "https://www.amazon.tr/*",
+        "https://www.amazon.com.tr/*",
         "https://www.amazon.eg/*"
       ],
       "js": [
@@ -86,7 +86,7 @@
         "https://www.amazon.pl/*",
         "https://www.amazon.sg/*",
         "https://www.amazon.ae/*",
-        "https://www.amazon.tr/*",
+        "https://www.amazon.com.tr/*",
         "https://www.amazon.eg/*"
       ]
     }

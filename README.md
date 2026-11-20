@@ -25,7 +25,7 @@ Works on all 19 Amazon sites, including the Prime filter.
 | South America | amazon.com.br |
 | Europe | amazon.co.uk, amazon.de, amazon.fr, amazon.it, amazon.es, amazon.nl, amazon.se, amazon.pl |
 | Asia Pacific | amazon.co.jp, amazon.com.au, amazon.in, amazon.sg |
-| Middle East | amazon.ae, amazon.tr, amazon.eg |
+| Middle East | amazon.ae, amazon.com.tr, amazon.eg |
 
 Amazon changes its pages now and then. If something stops working on your Amazon site, please [open an issue](https://github.com/codingismynewgaming/prime-filter-price-sort-for-amazon/issues).
 

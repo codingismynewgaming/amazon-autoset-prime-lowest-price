@@ -17,7 +17,7 @@ None. We do not collect browsing history, search terms, purchases, account detai
 ## Permissions and why they are needed
 - `storage`: to save your settings in your browser (and temporary loop-guard state in `storage.session` on Chromium).
 - `webRequest` and `webRequestBlocking` (Firefox): to rewrite the URL of a new Amazon search before the request is sent. Only Amazon search pages (`/s`) on the supported sites are touched.
-- Host permissions for the 19 supported Amazon sites (`amazon.com`, `.ca`, `.com.mx`, `.com.br`, `.co.uk`, `.de`, `.fr`, `.it`, `.es`, `.nl`, `.se`, `.pl`, `.co.jp`, `.com.au`, `.in`, `.sg`, `.ae`, `.tr`, `.eg`): so the extension runs only on those sites. It has no access to any other site.
+- Host permissions for the 19 supported Amazon sites (`amazon.com`, `.ca`, `.com.mx`, `.com.br`, `.co.uk`, `.de`, `.fr`, `.it`, `.es`, `.nl`, `.se`, `.pl`, `.co.jp`, `.com.au`, `.in`, `.sg`, `.ae`, `.com.tr`, `.eg`): so the extension runs only on those sites. It has no access to any other site.
 - Chrome and Edge builds (`declarativeNetRequestWithHostAccess`, `webRequest`, `alarms`, `storage`, and `web_accessible_resources` for `chromium/gate.html`): `declarativeNetRequestWithHostAccess` routes supported `/s` navigations to the local gate page (`chromium/gate.html`) and sets a one-time tab-scoped session allow rule for the computed target URL; `webRequest` is observation-only (non-blocking) to map and remove that one-time allow rule; `alarms` runs best-effort cleanup for expired loop-guard and bypass entries.
 
 ## Third parties
