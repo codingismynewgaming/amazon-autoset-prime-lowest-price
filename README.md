@@ -4,7 +4,7 @@ Applies the Amazon Prime filter and your sort order to every new Amazon search, 
 
 [Firefox: Get the add-on](https://addons.mozilla.org/en-US/firefox/addon/amazon-all-prime-sort-price/) | Chrome: {CHROME_STORE_URL} | Edge: {EDGE_STORE_URL}
 
-<!-- Screenshot placeholder: docs/screenshots/screenshot-1-before-after.png (to be added once screenshots are created) -->
+![Prime and lowest price, already applied](docs/screenshots/screenshot-1-before-after.png)
 
 I got tired of clicking the same two things on every Amazon search: the Prime filter and "sort by price". This extension does it for me.
 
@@ -38,13 +38,18 @@ Amazon changes its pages now and then. If something stops working on your Amazon
 
 
 ## Screenshots
-Screenshot assets will live under `docs/screenshots/`:
-- `screenshot-1-before-after.png`
-- `screenshot-2-popup-settings.png`
-- `screenshot-3-marketplaces.png`
-- `screenshot-4-keeps-your-changes.png`
-- `screenshot-5-privacy.png`
-- `demo.gif`
+
+### Popup settings
+![Extension popup settings](docs/screenshots/screenshot-2-popup-settings.png)
+
+### Per-site marketplace control
+![Supported Amazon marketplaces](docs/screenshots/screenshot-3-marketplaces.png)
+
+### Keeps your manual changes
+![Your changes stay](docs/screenshots/screenshot-4-keeps-your-changes.png)
+
+### Privacy and local storage
+![No data collected](docs/screenshots/screenshot-5-privacy.png)
 
 ## Good to know
 Sorting by price from low to high is not the same as finding the cheapest product. Amazon decides what appears in the results, and sponsored items and shipping costs are not part of the sort.
