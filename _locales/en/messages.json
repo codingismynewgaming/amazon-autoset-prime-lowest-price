@@ -1,0 +1,23 @@
+{
+  "extensionName": {
+    "message": "Prime Filter & Price Sort for Amazon"
+  },
+  "extensionDescription": {
+    "message": "Automatically filter Amazon searches to Prime and sort by lowest price or best reviews. No tracking."
+  },
+  "gateTitle": {
+    "message": "Prime Filter & Price Sort for Amazon"
+  },
+  "gatePreparing": {
+    "message": "Preparing your Amazon search…"
+  },
+  "gateFailed": {
+    "message": "The search could not be prepared. Please try again."
+  },
+  "gateBounce": {
+    "message": "Too many automatic redirects. Navigation was stopped. Please try again."
+  },
+  "rulesErrorTitle": {
+    "message": "Prime Filter & Price Sort: rules need attention. Reload the extension."
+  }
+}
