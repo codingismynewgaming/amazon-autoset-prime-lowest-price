@@ -22,3 +22,4 @@ web-ext-artifacts/
 
 # Environment files (API credentials)
 .env
+.amo-upload-uuid
