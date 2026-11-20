@@ -19,19 +19,19 @@ import { fileURLToPath } from 'node:url';
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const APP_ROOT = path.resolve(SCRIPT_DIR, '..');
 const DEFAULT_OUT_DIR = path.resolve(APP_ROOT, '..', 'builds', 'chromium');
-const PRIVACY_BASE = 'https://github.com/codingismynewgaming/amazon-autoset-prime-lowest-price/blob/master/';
+const PRIVACY_BASE = 'https://github.com/codingismynewgaming/prime-filter-price-sort-for-amazon/blob/master/';
 
 const TARGETS = {
   chrome: {
     manifest: 'chromium/manifest.chrome.json',
-    privacyDoc: 'docs/privacy-chrome.md',
-    privacyUrl: `${PRIVACY_BASE}docs/privacy-chrome.md`,
+    privacyDoc: 'PRIVACY.md',
+    privacyUrl: `${PRIVACY_BASE}PRIVACY.md`,
     packageName: 'prime-filter-price-sort-for-amazon-chrome',
   },
   edge: {
     manifest: 'chromium/manifest.edge.json',
-    privacyDoc: 'docs/privacy-edge.md',
-    privacyUrl: `${PRIVACY_BASE}docs/privacy-edge.md`,
+    privacyDoc: 'PRIVACY.md',
+    privacyUrl: `${PRIVACY_BASE}PRIVACY.md`,
     packageName: 'prime-filter-price-sort-for-amazon-edge',
   },
 };
