@@ -229,7 +229,7 @@ function validateMessages(messages, baseManifest) {
  * Replace the false privacy claims in the popup copy. Every replacement must
  * match exactly once, otherwise the original changed and the build stops.
  */
-function transformPopup(html, privacyUrl) {
+function transformPopup(html, privacyUrl, version) {
   const replacements = [
     {
       name: 'privacy list',
@@ -259,7 +259,8 @@ function transformPopup(html, privacyUrl) {
     },
   ];
 
-  let output = html;
+  // Windows checkouts (core.autocrlf) use CRLF; the replacements are LF-based.
+  let output = html.replace(/\r\n?/g, '\n');
   for (const replacement of replacements) {
     const occurrences = output.split(replacement.oldText).length - 1;
     if (occurrences !== 1) {
@@ -276,8 +277,8 @@ function transformPopup(html, privacyUrl) {
     if (output.includes(claim)) fail(`popup/popup.html still contains the claim "${claim}"`);
   }
   if (!output.includes(privacyUrl)) fail('popup/popup.html is missing the privacy policy link');
-  if (!output.includes('Version 1.0.5')) fail('popup/popup.html lost the "Version 1.0.5" string');
-  if (!output.includes('v1.0.5')) fail('popup/popup.html lost the "v1.0.5" footer string');
+  if (!output.includes(`Version ${version}`)) fail(`popup/popup.html lost the "Version ${version}" string`);
+  if (!output.includes(`v${version}`)) fail(`popup/popup.html lost the "v${version}" footer string`);
 
   return output;
 }
@@ -475,7 +476,7 @@ function buildTarget(browser, outDir, baseManifest, messages) {
     for (const relPath of SHARED_FILES) copyInto(tempDir, relPath);
 
     const popupSource = fs.readFileSync(path.join(APP_ROOT, 'popup', 'popup.html'), 'utf8');
-    const popupOutput = transformPopup(popupSource, target.privacyUrl);
+    const popupOutput = transformPopup(popupSource, target.privacyUrl, baseManifest.version);
     fs.mkdirSync(path.join(tempDir, 'popup'), { recursive: true });
     fs.writeFileSync(path.join(tempDir, 'popup', 'popup.html'), popupOutput, 'utf8');
 

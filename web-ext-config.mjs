@@ -1,0 +1,33 @@
+// web-ext loads this file from the current working directory (run web-ext inside app-files).
+// The Firefox package must only contain the Firefox runtime files.
+export default {
+  ignoreFiles: [
+    '_locales',
+    '_locales/**',
+    'chromium',
+    'chromium/**',
+    'tests',
+    'tests/**',
+    'scripts',
+    'scripts/**',
+    'docs',
+    'docs/**',
+    '.github',
+    '.github/**',
+    'web-ext-artifacts',
+    'web-ext-artifacts/**',
+    'icons/README.md',
+    'icons/icon-preview.html',
+    'web-ext-config.mjs',
+    '.env.example',
+    '.gitignore',
+    'CHANGELOG.md',
+    'CODEOWNERS',
+    'CONTRIBUTING.md',
+    'LICENSE',
+    'PRIVACY.md',
+    'README.md',
+    'SECURITY.md',
+    'legal.html',
+  ],
+};

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Prime Filter & Price Sort for Amazon",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Automatically filter Amazon searches to Prime and sort by lowest price or best reviews. One page load, no tracking.",
   "permissions": [
     "storage",

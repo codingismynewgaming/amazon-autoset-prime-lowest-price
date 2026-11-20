@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.6] - 2026-11-20
+
 ### Added
 - Prime filter facets added for `amazon.ca`, `.se`, `.co.jp`, `.com.au`, `.sg`, `.ae`, `.eg`, `.com.tr` (and fixed Turkey domain from `amazon.tr` to `amazon.com.tr`).
 - Support for language-prefixed Amazon search paths (such as `/-/en/s`).
@@ -16,6 +18,13 @@ All notable changes to this project will be documented in this file.
 - Rewrote `README.md` and updated `legal.html` to match current behavior and permissions.
 - Improved popup accessibility (`aria-label`, `type="button"`) and replaced native reset confirmation with an inline prompt.
 - Updated MIT license copyright to `Jan Kuehn (codingismynewgaming)` and added `.amo-upload-uuid` to `.gitignore`.
+
+### Fixed
+- Firefox: language-prefixed searches (such as `/-/en/s`) are now rewritten before the first request, so the page loads only once.
+- Stored marketplace lists that still contain `amazon.tr` are migrated to `amazon.com.tr`.
+- "Select All" now enables all marketplaces including future ones; checking every marketplace by hand does the same.
+- Chromium build no longer fails on Windows checkouts with CRLF line endings.
+- Firefox package excludes Chromium, test, script and documentation files via `web-ext-config.mjs`.
 
 ### Removed
 - Outdated `MOZILLA-SUBMISSION.md`, `SUBMISSION-GUIDE.md`, `STORE-DESCRIPTIONS.md`, `.amo-upload-uuid`, `push-to-github.ps1`, and legacy icon PowerShell scripts.

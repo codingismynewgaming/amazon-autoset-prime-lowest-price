@@ -13,7 +13,12 @@ const api = typeof browser !== 'undefined' ? browser : chrome;
 const recentRedirects = new Map();
 const LOOP_WINDOW_MS = 5000;
 
-const searchUrlPatterns = getAllMarketplaces().map((mp) => `https://www.${mp.domain}/s*`);
+// `/-/<lang>/s` language prefixes need their own pattern; buildRewrittenUrl
+// still filters every request by isAmazonSearchPath.
+const searchUrlPatterns = getAllMarketplaces().flatMap((mp) => [
+  `https://www.${mp.domain}/s*`,
+  `https://www.${mp.domain}/-/*/s*`
+]);
 
 api.webRequest.onBeforeRequest.addListener(
   async (details) => {

@@ -131,6 +131,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       enabledMarketplaces = enabledMarketplaces.filter(d => d !== domain);
     }
 
+    if (allMarketplaces.every(m => enabledMarketplaces.includes(m.domain))) {
+      enabledMarketplaces = null;
+    }
+
     currentSettings.enabledMarketplaces = enabledMarketplaces;
     await saveSettings(currentSettings);
   }
@@ -232,7 +236,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Select All button
   elements.selectAllBtn.addEventListener('click', async () => {
-    currentSettings.enabledMarketplaces = allMarketplaces.map(m => m.domain);
+    currentSettings.enabledMarketplaces = null; // null = all, including future marketplaces
     await saveSettings(currentSettings);
     renderMarketplaceList();
   });
