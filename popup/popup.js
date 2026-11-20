@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     selectAllBtn: document.getElementById('selectAllBtn'),
     deselectAllBtn: document.getElementById('deselectAllBtn'),
     resetBtn: document.getElementById('resetBtn'),
+    resetConfirm: document.getElementById('resetConfirm'),
+    resetConfirmBtn: document.getElementById('resetConfirmBtn'),
+    resetCancelBtn: document.getElementById('resetCancelBtn'),
     tabBtns: document.querySelectorAll('.tab-btn'),
     tabContents: document.querySelectorAll('.tab-content')
   };
@@ -70,14 +73,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     allMarketplaces.forEach(mp => {
       const isEnabled = allEnabled || enabledMarketplaces?.includes(mp.domain);
       
-      const item = document.createElement('div');
+      const item = document.createElement('label');
       item.className = 'marketplace-item';
+      item.htmlFor = `mp-${mp.domain}`;
       item.setAttribute('data-domain', mp.domain);
       
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.id = `mp-${mp.domain}`;
       checkbox.setAttribute('data-domain', mp.domain);
+      checkbox.setAttribute('aria-label', `${mp.name} (${mp.domain})`);
       checkbox.checked = isEnabled;
       
       const info = document.createElement('div');
@@ -106,17 +111,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Add event listeners to marketplace checkboxes
     elements.marketplaceList.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
       checkbox.addEventListener('change', handleMarketplaceChange);
-    });
-
-    // Add click handlers to marketplace items
-    elements.marketplaceList.querySelectorAll('.marketplace-item').forEach(item => {
-      item.addEventListener('click', (e) => {
-        if (e.target.type !== 'checkbox') {
-          const checkbox = item.querySelector('input[type="checkbox"]');
-          checkbox.checked = !checkbox.checked;
-          checkbox.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-      });
     });
   }
 
@@ -163,10 +157,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     elements.sortOptions.classList.toggle('is-disabled', !active);
   }
 
+  function setResetConfirmVisible(visible) {
+    elements.resetBtn.hidden = visible;
+    elements.resetConfirm.hidden = !visible;
+  }
+
   /**
    * Tab Switching
    */
   function switchTab(tabId) {
+    setResetConfirmVisible(false);
+
     // Update tab buttons
     elements.tabBtns.forEach(btn => {
       btn.classList.toggle('active', btn.dataset.tab === tabId);
@@ -243,13 +244,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderMarketplaceList();
   });
 
-  // Reset button
-  elements.resetBtn.addEventListener('click', async () => {
-    const confirmed = confirm('Reset all settings to defaults?');
-    if (confirmed) {
-      await resetSettings();
-      await loadSettings();
-    }
+  // Reset button with inline confirmation (native confirm can close browser popups)
+  elements.resetBtn.addEventListener('click', () => {
+    setResetConfirmVisible(true);
+    elements.resetCancelBtn.focus();
+  });
+
+  elements.resetCancelBtn.addEventListener('click', () => {
+    setResetConfirmVisible(false);
+    elements.resetBtn.focus();
+  });
+
+  elements.resetConfirmBtn.addEventListener('click', async () => {
+    await resetSettings();
+    await loadSettings();
+    setResetConfirmVisible(false);
+    elements.resetBtn.focus();
   });
 
   // Load settings on init

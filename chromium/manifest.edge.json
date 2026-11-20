@@ -1,0 +1,117 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "version": "1.0.5",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage",
+    "declarativeNetRequestWithHostAccess",
+    "webRequest",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://www.amazon.com/*",
+    "https://www.amazon.de/*",
+    "https://www.amazon.co.uk/*",
+    "https://www.amazon.fr/*",
+    "https://www.amazon.it/*",
+    "https://www.amazon.es/*",
+    "https://www.amazon.ca/*",
+    "https://www.amazon.co.jp/*",
+    "https://www.amazon.com.au/*",
+    "https://www.amazon.com.mx/*",
+    "https://www.amazon.com.br/*",
+    "https://www.amazon.in/*",
+    "https://www.amazon.nl/*",
+    "https://www.amazon.se/*",
+    "https://www.amazon.pl/*",
+    "https://www.amazon.sg/*",
+    "https://www.amazon.ae/*",
+    "https://www.amazon.tr/*",
+    "https://www.amazon.eg/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.amazon.com/*",
+        "https://www.amazon.de/*",
+        "https://www.amazon.co.uk/*",
+        "https://www.amazon.fr/*",
+        "https://www.amazon.it/*",
+        "https://www.amazon.es/*",
+        "https://www.amazon.ca/*",
+        "https://www.amazon.co.jp/*",
+        "https://www.amazon.com.au/*",
+        "https://www.amazon.com.mx/*",
+        "https://www.amazon.com.br/*",
+        "https://www.amazon.in/*",
+        "https://www.amazon.nl/*",
+        "https://www.amazon.se/*",
+        "https://www.amazon.pl/*",
+        "https://www.amazon.sg/*",
+        "https://www.amazon.ae/*",
+        "https://www.amazon.tr/*",
+        "https://www.amazon.eg/*"
+      ],
+      "js": [
+        "lib/storage.js",
+        "lib/rewrite.js",
+        "chromium/content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "chromium/gate.html"
+      ],
+      "matches": [
+        "https://www.amazon.com/*",
+        "https://www.amazon.de/*",
+        "https://www.amazon.co.uk/*",
+        "https://www.amazon.fr/*",
+        "https://www.amazon.it/*",
+        "https://www.amazon.es/*",
+        "https://www.amazon.ca/*",
+        "https://www.amazon.co.jp/*",
+        "https://www.amazon.com.au/*",
+        "https://www.amazon.com.mx/*",
+        "https://www.amazon.com.br/*",
+        "https://www.amazon.in/*",
+        "https://www.amazon.nl/*",
+        "https://www.amazon.se/*",
+        "https://www.amazon.pl/*",
+        "https://www.amazon.sg/*",
+        "https://www.amazon.ae/*",
+        "https://www.amazon.tr/*",
+        "https://www.amazon.eg/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "chromium/service-worker.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "__MSG_extensionName__",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "96": "icons/icon96.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png",
+    "128": "icons/icon128.png"
+  },
+  "homepage_url": "https://github.com/codingismynewgaming/amazon-autoset-prime-lowest-price",
+  "author": "codingismynewgaming"
+}
