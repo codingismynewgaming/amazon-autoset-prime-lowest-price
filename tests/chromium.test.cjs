@@ -1020,3 +1020,31 @@ test('storage.js handles runtime.lastError and falls back to storage.local', asy
   assert.equal(loaded.sortOption, 'review-rank');
   assert.equal(localStore.amazonPrimeSorterSettings.autoSort, false);
 });
+
+test('all 19 marketplaces have non-null primeFacet and rewrite fresh searches with rh + s', () => {
+  const all = core.getAllMarketplaces();
+  assert.equal(all.length, 19);
+
+  const expectedNewFacets = {
+    'amazon.ca': 'p_85:5690392011',
+    'amazon.se': 'p_n_free_shipping_eligible:20692900031',
+    'amazon.co.jp': 'p_n_free_shipping_eligible:8070708051',
+    'amazon.com.au': 'p_n_free_shipping_eligible:5363790051',
+    'amazon.sg': 'p_n_free_shipping_eligible:6966031051',
+    'amazon.ae': 'p_n_free_shipping_eligible:15397661031',
+    'amazon.eg': 'p_n_free_shipping_eligible:21909080031',
+    'amazon.tr': 'p_n_free_shipping_eligible:21345962031',
+  };
+
+  for (const mp of all) {
+    assert.ok(typeof mp.primeFacet === 'string' && mp.primeFacet.includes(':'), `${mp.domain} missing primeFacet`);
+  }
+
+  for (const [domain, facet] of Object.entries(expectedNewFacets)) {
+    const res = core.buildRewrittenUrl(`https://www.${domain}/s?k=usb+cable`, defaults);
+    assert.ok(res && res.primeChanged === true && res.sortChanged === true, `${domain} should rewrite Prime and sort`);
+    const parsed = new URL(res.url);
+    assert.equal(parsed.searchParams.get('rh'), facet, `${domain} rh mismatch`);
+    assert.equal(parsed.searchParams.get('s'), 'price-asc-rank', `${domain} sort mismatch`);
+  }
+});
