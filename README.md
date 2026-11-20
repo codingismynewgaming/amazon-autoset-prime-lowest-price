@@ -36,11 +36,6 @@ Amazon changes its pages now and then. If something stops working on your Amazon
 - **From source (Firefox):** clone the repo, open `about:debugging#/runtime/this-firefox`, choose "Load Temporary Add-on", select `manifest.json`.
 - **From source (Chrome / Edge local dev build):** run `node scripts/build-chromium.mjs all` and load the generated folder from `../builds/chromium/` via `chrome://extensions` or `edge://extensions` (Developer mode). Store packages are not submitted yet; see [docs/chromium-build.md](docs/chromium-build.md).
 
-## How to use
-1. Click the extension icon and make sure the extension is on.
-2. Choose whether to apply the Prime filter and whether to sort. Pick lowest price or best reviews.
-3. Pick the Amazon sites you want.
-4. Search on Amazon as usual.
 
 ## Screenshots
 Screenshot assets will live under `docs/screenshots/`:
