@@ -2,7 +2,7 @@
 
 Language: English only. Name in all stores: **Prime Filter & Price Sort for Amazon**.
 Category: Shopping (AMO, Chrome, Edge).
-Status: Firefox is live (v1.0.5). Chrome and Edge are prepared locally in `chromium/` and not submitted yet.
+Status: Firefox is live (v1.0.5). Chrome ([Chrome Web Store](https://chromewebstore.google.com/detail/prime-filter-price-sort-f/bncbmleiffadkeekjdgcofccdbpmbldl)) and Edge ([Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/prime-filter-price-sort/mhndpkgjdillpomodinlbhicpocloemf)) are live too.
 
 ## 1. Short texts
 **AMO summary** (max 250 characters, this one is 165):
