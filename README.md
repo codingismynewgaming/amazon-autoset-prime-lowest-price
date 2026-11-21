@@ -2,7 +2,7 @@
 
 Applies the Amazon Prime filter and your sort order to every new Amazon search, before the page loads. Sort by lowest price or best reviews. One page load, no tracking.
 
-[Firefox: Get the add-on](https://addons.mozilla.org/en-US/firefox/addon/amazon-all-prime-sort-price/) | Chrome: {CHROME_STORE_URL} | Edge: {EDGE_STORE_URL}
+[Firefox: Get the add-on](https://addons.mozilla.org/en-US/firefox/addon/amazon-all-prime-sort-price/) | [Chrome: Get the extension](https://chromewebstore.google.com/detail/prime-filter-price-sort-f/bncbmleiffadkeekjdgcofccdbpmbldl) | [Edge: Get the add-on](https://microsoftedge.microsoft.com/addons/detail/prime-filter-price-sort/mhndpkgjdillpomodinlbhicpocloemf)
 
 ![Prime and lowest price, already applied](docs/screenshots/screenshot-1-before-after.png)
 
@@ -31,8 +31,8 @@ Amazon changes its pages now and then. If something stops working on your Amazon
 
 ## Install
 - **Firefox:** [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/amazon-all-prime-sort-price/), then "Add to Firefox". Firefox 140 or newer (Android 142 or newer).
-- **Chrome:** {CHROME_STORE_URL} (coming soon; local gate build prepared in `chromium/`)
-- **Edge:** {EDGE_STORE_URL} (coming soon; local gate build prepared in `chromium/`)
+- **Chrome:** [Chrome Web Store](https://chromewebstore.google.com/detail/prime-filter-price-sort-f/bncbmleiffadkeekjdgcofccdbpmbldl), then "Add to Chrome".
+- **Edge:** [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/prime-filter-price-sort/mhndpkgjdillpomodinlbhicpocloemf), then "Get".
 - **From source (Firefox):** clone the repo, open `about:debugging#/runtime/this-firefox`, choose "Load Temporary Add-on", select `manifest.json`.
 - **From source (Chrome / Edge local dev build):** run `node scripts/build-chromium.mjs all` and load the generated folder from `../builds/chromium/` via `chrome://extensions` or `edge://extensions` (Developer mode). Store packages are not submitted yet; see [docs/chromium-build.md](docs/chromium-build.md).
 
