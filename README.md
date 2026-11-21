@@ -34,7 +34,7 @@ Amazon changes its pages now and then. If something stops working on your Amazon
 - **Chrome:** [Chrome Web Store](https://chromewebstore.google.com/detail/prime-filter-price-sort-f/bncbmleiffadkeekjdgcofccdbpmbldl), then "Add to Chrome".
 - **Edge:** [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/prime-filter-price-sort/mhndpkgjdillpomodinlbhicpocloemf), then "Get".
 - **From source (Firefox):** clone the repo, open `about:debugging#/runtime/this-firefox`, choose "Load Temporary Add-on", select `manifest.json`.
-- **From source (Chrome / Edge local dev build):** run `node scripts/build-chromium.mjs all` and load the generated folder from `../builds/chromium/` via `chrome://extensions` or `edge://extensions` (Developer mode). Store packages are not submitted yet; see [docs/chromium-build.md](docs/chromium-build.md).
+- **From source (Chrome / Edge local dev build):** run `node scripts/build-chromium.mjs all` and load the generated folder from `../builds/chromium/` via `chrome://extensions` or `edge://extensions` (Developer mode). The extension is available in all three stores; this build is for development or your own builds. See [docs/chromium-build.md](docs/chromium-build.md).
 
 
 ## Screenshots
